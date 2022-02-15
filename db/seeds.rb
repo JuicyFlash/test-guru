@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+#ProcessedTest.destroy_all
+#User.destroy_all
+#Answer.destroy_all
+#Question.destroy_all
+#Test.destroy_all
+#Category.destroy_all
+
 # Категории
 idx = 1
 3.times do
@@ -17,7 +25,7 @@ end
 Category.pluck(:id).each do |id|
   idx = 1
   3.times do
-    Test.create(title: "Тест_#{idx} (категория_#{id})", level: idx)
+    Test.create(title: "Тест_#{idx} (категория_#{id})", category_id: id, level: idx)
     idx += 1
   end
 end
