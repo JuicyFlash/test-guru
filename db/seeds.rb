@@ -53,7 +53,8 @@ def generate_test_data
   tests.each do |test|
     idx = 1
     5.times do
-      questions << Question.create(body: "Вопрос_#{idx} (тест_#{test.id})")
+      questions << Question.create(body: "Вопрос_#{idx} (тест_#{test.id})",
+                                   test_id: test.id)
       idx += 1
     end
   end
@@ -64,15 +65,17 @@ def generate_test_data
     idx = 1
     4.times do
       answers << if idx == 1
-                   Answer.create(body: "Ответ_#{idx} (вопрос_#{question.id})", correct: true)
+                   Answer.create(body: "Ответ_#{idx} (вопрос_#{question.id})",
+                                 question_id: question.id,
+                                 correct: true)
                  else
-                   Answer.create(body: "Ответ_#{idx} (вопрос_#{question.id})")
+                   Answer.create(body: "Ответ_#{idx} (вопрос_#{question.id})",
+                                 question_id: question.id)
                  end
       idx += 1
     end
   end
 
- 
 
   # Пользователи-тесты
   users.each do |user|
