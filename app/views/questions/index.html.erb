@@ -1,0 +1,17 @@
+<h1><%=@test.title %></h1>
+
+<table>
+  <tr>
+    <th>Вопросы</th>
+
+  </tr>
+  <% @test.questions.each do |qst| %>
+    <tr>
+      <td><%= qst.body %></td>
+      <td><%= link_to 'Удалить', qst, method: :delete%></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+
+<%= link_to 'Создать новый вопрос', new_test_question_path %>
