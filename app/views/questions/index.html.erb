@@ -5,10 +5,10 @@
     <th>Вопросы</th>
 
   </tr>
-  <% @test.questions.each do |qst| %>
+  <% @test.questions.each do |question| %>
     <tr>
-      <td><%= qst.body %></td>
-      <td><%= link_to 'Удалить', qst, method: :delete%></td>
+      <td><%= question.body %></td>
+      <td><%= link_to 'Удалить', question, method: :delete%></td>
     </tr>
   <% end %>
 </table>
