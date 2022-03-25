@@ -9,8 +9,18 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <nav>
+   <%= link_to 'Tests list', tests_path %>
+  </nav>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer> <%= current_year %>
+    <address>Учебный проект курса "Основы Rails" школы <a target="_blank" href="https://www.thinknetica.com">Thinknetica</a>
+    </address>
+    <address><%=github_url('Николаев Александр', 'https://github.com/JuicyFlash/test-guru') %>
+    </address>
+  </footer>
 </html>
