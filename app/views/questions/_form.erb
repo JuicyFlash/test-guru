@@ -1,0 +1,8 @@
+<%= form_with url: resource_path, model: @question, local: true do |form| %>
+  <p>
+    <%= form.label :body, "Вопрос" %> <br>
+    <%= form.text_field :body %> <br>
+  </p><br>
+  <p><%= form.submit %></p>
+  <%= link_to 'Back', test_questions_path(@test) %>
+<% end %>
