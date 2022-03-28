@@ -5,9 +5,9 @@
     <th>Title</th>
     <th>Questions count</th>
   </tr>
-  <% Test.all.each do |test| %>
+  <% @tests.each do |test| %>
     <tr>
-      <td><%= link_to test.title, test_questions_path(test) %></td>
+      <td><%= link_to test.title, test_path(test) %></td>
       <td><%= test.questions.count %></td>
     </tr>
   <% end %>
