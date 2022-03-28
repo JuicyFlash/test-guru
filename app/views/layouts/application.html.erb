@@ -17,10 +17,7 @@
     <%= yield %>
   </body>
 
-  <footer> <%= current_year %>
-    <address>Учебный проект курса "Основы Rails" школы <a target="_blank" href="https://www.thinknetica.com">Thinknetica</a>
-    </address>
-    <address><%=github_url('Николаев Александр', 'https://github.com/JuicyFlash/test-guru') %>
-    </address>
+  <footer>
+     <%=render 'layouts/footer' %>
   </footer>
 </html>
