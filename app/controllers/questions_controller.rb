@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_questions_not_found
 
-  before_action :find_test, only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[create new]
+  before_action :find_question, only: %i[show destroy edit update]
   # Список всех вопросов теста
   # /tests/:id/questions/
   #def index
@@ -19,16 +19,31 @@ class QuestionsController < ApplicationController
   def create
     question = @test.questions.new(question_params)
     if question.save
-      render plain: 'Вопрос создан'
+      redirect_to test_path(@test)
     else
-      render plain: 'Не удалось создать новый вопрос'
+      render :new
      end
+  end
+
+  def new
+    @question = Question.new
   end
 
   # Удаление вопроса
   # /questions/:id
   def destroy
     @question.destroy
+    redirect_to test_path(@question.test_id)
+  end
+
+  def edit; end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test_id)
+    else
+      render :edit
+    end
   end
 
   private

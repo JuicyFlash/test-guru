@@ -1,0 +1,8 @@
+<h1><%= @test.title %></h1>
+<table>
+  <tr>
+    <th>Вопросы</th>
+  </tr>
+<%= render @test.questions %>
+</table>
+<%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
