@@ -12,9 +12,7 @@ class QuestionsController < ApplicationController
 
   # Просмотр конкретного вопроса
   # /questions/:id
-  def show
-    render plain: @question.body
-  end
+  def show; end
 
   def create
     question = @test.questions.new(question_params)
