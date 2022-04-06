@@ -1,0 +1,7 @@
+<%if @processed_test.percent_result >= 85 %>
+<h1 id="h1_successful"> The <%= @processed_test.test.title %> Test was successful Completed! </h1>
+  <p><%= @processed_test.percent_result %>% correct answers </p>
+<%else %>
+  <h1 id="h1_failed"> The <%= @processed_test.test.title %> Test was Failed! </h1>
+  <p><%= @processed_test.percent_result %>% correct answers</p>
+<%end %>
