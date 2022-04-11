@@ -2,6 +2,8 @@
 
 class ProcessedTest < ApplicationRecord
 
+  PERCENT_FOR_PASS_TEST = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -20,11 +22,7 @@ class ProcessedTest < ApplicationRecord
   end
 
   def success?
-    percent_result >= percents_for_pass_test
-  end
-
-  def percent_for_pass_test
-    85
+    percent_result >= PERCENT_FOR_PASS_TEST
   end
 
   def percent_result
