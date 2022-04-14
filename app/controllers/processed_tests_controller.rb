@@ -1,5 +1,6 @@
 class ProcessedTestsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_processed_test, only: %i[show update result]
 
   def show
