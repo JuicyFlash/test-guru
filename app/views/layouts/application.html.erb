@@ -11,6 +11,13 @@
   </head>
   <nav>
    <%= link_to 'Tests list', tests_path %>
+    <%if logged_in? %>
+      <p class="nav user">Welcome, <b><%= current_user.first_name %></b></p>
+      <p class="nav user"><%= link_to 'logout', logout_path, method: :post %></p>
+    <% else %>
+      <p class="nav user">Welcome, please <%= link_to 'login', login_path %> or <%= link_to 'signup', signup_path %> </p>
+
+    <% end %>
   </nav>
 
   <body>
