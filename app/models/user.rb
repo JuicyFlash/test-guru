@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_many :processed_tests
   has_many :tests, through: :processed_tests
 
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "Incorrect email format", on: :create }
-  validates :email, uniqueness: { message: "Email already in use" }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Incorrect email format", on: :create },
+            uniqueness: { message: "Email already in use" }
 
   has_secure_password
 
