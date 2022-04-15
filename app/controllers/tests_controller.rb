@@ -9,9 +9,8 @@ class TestsController < ApplicationController
   def show; end
 
   def start
-    @user = current_user
-    @user.tests.push(@test)
-    redirect_to @user.processed_test(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.processed_test(@test)
   end
 
   private
