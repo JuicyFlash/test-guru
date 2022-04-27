@@ -1,5 +1,8 @@
 <h1>Tests</h1>
 
+<h2>
+  <%= link_to 'New test', new_admin_test_path%>
+</h2>
 <table>
   <tr>
     <th>Title</th>
@@ -7,7 +10,8 @@
   </tr>
   <% @tests.each do |test| %>
     <tr>
-      <td><%= test.title %></td>
+      <td><%= link_to test.title, admin_test_path(test) %></td>
+      <td><%= link_to 'Edit', edit_admin_test_path(test) %></td>
       <td><%= test.questions.count %></td>
       <td><%= button_to 'Start', start_test_path(test) %></td>
     </tr>

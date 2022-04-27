@@ -13,6 +13,7 @@ class ProcessedTestsController < ApplicationController
   def update
     @processed_test.accept!(params[:answer_ids])
     if @processed_test.completed?
+      TestsMailer.completed_test(@processed_test).deliver_now
       redirect_to result_processed_test_path(@processed_test)
     else
       render :show
