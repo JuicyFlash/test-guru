@@ -10,9 +10,8 @@ class Users::SessionsController < Devise::SessionsController
 
   #POST /resource/sign_in
   def create
-
     super
-    # += current_user.last_name unless current_user.last_name.nil?
+
     salute = current_user.first_name unless current_user.first_name.nil?
     salute =
       if current_user.last_name.nil?
@@ -22,8 +21,18 @@ class Users::SessionsController < Devise::SessionsController
           salute + current_user.last_name
        end
     flash[:notice] = "Hello #{ salute ||= current_user.email }"
+
   end
 
+  private
+
+  def after_sign_in_path_for(resource)
+    if resource.admin?
+      admin_tests_path
+    else
+    super
+    end
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super

@@ -3,7 +3,6 @@ class TestsController < ApplicationController
   before_action :find_test, only: %i[start]
 
   def index
-    redirect_to admin_tests_path if current_user.is_a?(Admin)
     @tests = Test.all
   end
 
