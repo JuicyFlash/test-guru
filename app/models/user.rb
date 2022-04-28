@@ -23,6 +23,17 @@ class User < ApplicationRecord
     Test.joins("JOIN processed_tests on tests.id = processed_tests.test_id ").where("processed_tests.user_id = ? and tests.level = ?", self.id, level)
   end
 
+  def name_for_greeting
+    salute = self.first_name unless self.first_name.nil?
+    salute = if self.last_name.nil?
+        salute
+      else
+        self.last_name if salute.nil?
+        salute + self.last_name
+             end
+    salute ||= self.email
+  end
+
   def admin?
     self.is_a?(Admin)
   end

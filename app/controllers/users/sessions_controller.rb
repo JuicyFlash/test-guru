@@ -12,15 +12,7 @@ class Users::SessionsController < Devise::SessionsController
   def create
     super
 
-    salute = current_user.first_name unless current_user.first_name.nil?
-    salute =
-      if current_user.last_name.nil?
-         salute
-      else
-          current_user.last_name if salute.nil?
-          salute + current_user.last_name
-       end
-    flash[:notice] = "Hello #{ salute ||= current_user.email }"
+    flash[:notice] = "Hello #{ current_user.name_for_greeting }"
 
   end
 
