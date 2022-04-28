@@ -22,6 +22,10 @@ class User < ApplicationRecord
     Test.joins("JOIN processed_tests on tests.id = processed_tests.test_id ").where("processed_tests.user_id = ? and tests.level = ?", self.id, level)
   end
 
+  def admin?
+    self.is_a?(Admin)
+  end
+
   def processed_test(test)
     processed_tests.order(id: :desc).find_by(test_id: test.id)
   end
