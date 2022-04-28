@@ -7,8 +7,6 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  # def show; end
-
   def start
     current_user.tests.push(@test)
     redirect_to current_user.processed_test(@test)
