@@ -1,0 +1,9 @@
+<li>
+ <%= answer.body %>
+  <p>
+  <%= link_to 'Show', admin_answer_path(answer) %>
+  <%= link_to 'Edit', edit_admin_answer_path(answer)%>
+  <%= link_to 'Delete', admin_answer_path(answer), method: :delete %>
+  </p>
+
+</li>

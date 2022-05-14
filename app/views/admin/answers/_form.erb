@@ -1,0 +1,14 @@
+<%= form_with model: resource_model, local: true do |form| %>
+  <h1>Edit_new</h1>
+  <p>
+    <%= form.label :body %> <br>
+    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %> <br>
+  </p><br>
+  <p>
+    <%= form.label :correct %> <br>
+    <%= form.check_box :correct, id: :answer_correct%> <br>
+  </p><br>
+  <p><%= form.submit %></p>
+<% end %>
+
+<%= link_to 'Back', [:admin, @question]%>

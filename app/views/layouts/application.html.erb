@@ -11,17 +11,19 @@
   </head>
   <nav>
    <%= link_to 'Tests list', tests_path %>
-    <%if logged_in? %>
+    <%if user_signed_in? %>
       <p class="nav user">Welcome, <b><%= current_user.first_name %></b></p>
-      <p class="nav user"><%= link_to 'logout', logout_path, method: :delete %></p>
+      <p class="nav user"><%= link_to 'logout', destroy_user_session_path, method: :delete %></p>
     <% else %>
-      <p class="nav user">Welcome, please <%= link_to 'login', login_path %> or <%= link_to 'signup', signup_path %> </p>
+      <p class="nav user">Welcome, please <%= link_to 'login', new_user_session_path %> or <%= link_to 'signup', new_user_registration_path %> </p>
 
     <% end %>
   </nav>
 
   <body>
-    <%= yield %>
+
+  <%= render 'shared/flash' %>
+  <%= yield %>
   </body>
 
   <footer>
