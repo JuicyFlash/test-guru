@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+      user: "User"
+
+    attributes:
+      test:
+        title: "Title"
+      user:
+        password: "Password"
+        first_name: "Name"
+        last_name: "Surname"
+        password_confirmation: "Confirm password"
+    errors:
+      messages:
+        blank: "can`t be blank"
