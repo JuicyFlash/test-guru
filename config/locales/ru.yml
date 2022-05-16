@@ -1,2 +1,49 @@
 ru:
-  hello: "Привет мир"
+
+  edit_test_header: "Изменение теста %{title}"
+  new_test_header: "Создание нового теста"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      start: "Начать"
+      test_table_title: "Название"
+      tests_table_count: "Количество вопросов"
+    form:
+      back: "Назад"
+
+  processed_tests:
+    show:
+      header: "Прохождение теста %{title}"
+      question_number: "Вопрос № %{number} из %{count}"
+      next_question: "Следующий вопрос"
+    result:
+      fail_header: "Тест провален!"
+      success_header: "Тест пройден!"
+      correct_answers: "%{percents}% правильных ответов"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        new: "Новый тест"
+        edit: "Изменить"
+        start: "Начать"
+        test_table_title: "Название"
+        tests_table_count: "Количество вопросов"
+      form:
+        back: "Назад"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    select:
+      prompt: "Выберите категорию"
+
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"

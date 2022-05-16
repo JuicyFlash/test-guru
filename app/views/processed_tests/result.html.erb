@@ -1,7 +1,7 @@
 <%if @processed_test.success? %>
-<h1 id="h1_successful"> The <%= @processed_test.test.title %> Test was successful Completed! </h1>
-  <p><%= @processed_test.percent_result %>% correct answers </p>
+<h1 id="h1_successful"> The <%= @processed_test.test.title %> <%= t('.success_header') %> </h1>
+  <p><%= t('.correct_answers', percents: @processed_test.percent_result )  %> </p>
 <%else %>
-  <h1 id="h1_failed"> The <%= @processed_test.test.title %> Test was Failed! </h1>
-  <p><%= @processed_test.percent_result %>% correct answers</p>
+  <h1 id="h1_failed"> The <%= @processed_test.test.title %> <%= t('.fail_header') %> </h1>
+  <p><%= t('.correct_answers', percents: @processed_test.percent_result)%> </p>
 <%end %>
