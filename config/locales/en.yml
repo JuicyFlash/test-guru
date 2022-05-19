@@ -39,6 +39,9 @@ en:
       header: "Available tests"
       start: "Start"
       test_table_title: "Title"
+      test_questions_count: "Questions: %{count}"
+      test_level: "Test level: %{level}"
+      test_category: "Test category: %{category}"
       tests_table_count: "Questions count"
     form:
       back: "Back"
@@ -57,14 +60,21 @@ en:
     tests:
       index:
         header: "Available tests"
-        new: "New test"
+        new: "Create new test"
         start: "Start"
+        delete: "Delete"
         edit: "Edit"
         test_table_title: "Title"
+        test_questions_count: "Questions: %{count}"
+        test_level: "Test level: %{level}"
+        test_category: "Test category: %{category}"
         tests_table_count: "Questions count"
       form:
         back: "Back"
-
+  shared:
+    nav:
+      tests_list: "Tests list"
+      admin_panel: "Admin mode"
   helpers:
     submit:
       test:

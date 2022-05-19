@@ -24,7 +24,12 @@ class User < ApplicationRecord
   end
 
   def name_for_greeting
-    [first_name, last_name].compact.join(' ') || email
+    if (first_name || self.last_name).nil?
+      self.email
+    else
+      [self.first_name, self.last_name].compact.join(' ')
+    end
+
   end
 
   def admin?

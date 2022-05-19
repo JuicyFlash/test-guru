@@ -8,6 +8,9 @@ ru:
       header: "Доступные тесты"
       start: "Начать"
       test_table_title: "Название"
+      test_questions_count: "Вопросов: %{count}"
+      test_level: "Уровень теста: %{level}"
+      test_category: "Категория теста: %{category}"
       tests_table_count: "Количество вопросов"
     form:
       back: "Назад"
@@ -26,14 +29,21 @@ ru:
     tests:
       index:
         header: "Доступные тесты"
-        new: "Новый тест"
+        new: "Создать новый тест"
         edit: "Изменить"
+        delete: "Удалить"
         start: "Начать"
         test_table_title: "Название"
+        test_questions_count: "Вопросов: %{count}"
+        test_level: "Уровень теста: %{level}"
+        test_category: "Категория теста: %{category}"
         tests_table_count: "Количество вопросов"
       form:
         back: "Назад"
-
+  shared:
+    nav:
+      tests_list: "Список тестов"
+      admin_panel: "Режим администратора"
   helpers:
     submit:
       test:

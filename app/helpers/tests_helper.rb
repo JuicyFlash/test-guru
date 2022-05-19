@@ -8,4 +8,14 @@ module TestsHelper
 
     end
   end
+  def test_level(test)
+    if test.level <= 1
+      content_tag :span, t('.test_level', level: test.level ), class: "badge bg-success"
+    elsif test.level == 2
+      content_tag :span, t('.test_level', level: test.level ), class: "badge bg-warning "
+    elsif test.level > 2
+      content_tag :span, t('.test_level', level: test.level ), class: "badge bg-danger"
+    end
+  end
+
 end
