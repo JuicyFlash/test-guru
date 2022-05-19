@@ -1,20 +1,36 @@
+<div class="col-7">
 <h1><%= t('.header') %></h1>
-
 <h2>
-  <%= link_to t('.new'), new_admin_test_path%>
+  <%= button_to  t('.new'), new_admin_test_path,  { class: 'btn btn-outline-success btn-lg', method: :get }%>
 </h2>
-<table>
-  <tr>
-    <th><%= t('.test_table_title') %></th>
-    <th><%= t('.tests_table_count') %></th>
-  </tr>
-  <% @tests.each do |test| %>
-    <tr>
-      <td><%= link_to test.title, admin_test_path(test) %></td>
-      <td><%= link_to t('.edit'), edit_admin_test_path(test) %></td>
-      <td><%= test.questions.count %></td>
-      <td><%= button_to t('.start'), start_test_path(test) %></td>
-    </tr>
-  <% end %>
-</table>
-<br/>
+</div>
+<% @tests.each do |test| %>
+  <div class="col-7">
+    <div class="list-group">
+      <li class="list-group-item" >
+        <div class="row justify-content-between">
+          <div class="col-8">
+            <h5 class="mb-1"><%= link_to test.title, admin_test_path(test) %></h5>
+            <p class="mb-1"><%=  t('.test_category', category: test.category.title)  %></p>
+            <div class="row justify-content-start">
+              <div class="col-3">
+                <small> <%= test_level(test)%> </small>
+              </div>
+              <div class="col-3">
+                <small> <%= button_to  t('.edit'), edit_admin_test_path(test),  { class: 'btn btn-outline-primary btn-sm', method: :get }%>  </small>
+              </div>
+              <div class="col-3">
+                <small> <%= button_to  t('.delete'), admin_test_path(test), { class: 'btn btn-outline-danger btn-sm', method: :delete }%>  </small>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <small><%= t('.test_questions_count', count: test.questions.count)  %>
+              <p> <%= button_to  t('.start'), start_test_path(test), { class: 'btn btn-success btn-sm' } %></p>
+            </small>
+          </div>
+        </div>
+      </li>
+    </div>
+  </div>
+<% end %>
