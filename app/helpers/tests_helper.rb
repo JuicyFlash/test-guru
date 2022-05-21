@@ -9,13 +9,13 @@ module TestsHelper
     end
   end
   def test_level(test)
-    if test.level <= 1
-      content_tag :span, t('.test_level', level: test.level ), class: "badge bg-success"
-    elsif test.level == 2
-      content_tag :span, t('.test_level', level: test.level ), class: "badge bg-warning "
-    elsif test.level > 2
-      content_tag :span, t('.test_level', level: test.level ), class: "badge bg-danger"
-    end
+    level_class =
+      { 0 => "badge bg-secondary",
+        1 => "badge bg-success",
+        2 => "badge bg-warning",
+        3 => "badge bg-danger"
+      }
+      content_tag :span, t('.test_level', level: test.level ), class: level_class[test.level] || level_class[0]
   end
 
 end
