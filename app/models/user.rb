@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   has_many :processed_tests
   has_many :tests, through: :processed_tests
+  has_many :author_gists, class_name: "Gist" , foreign_key: :author_id
   has_many :author_tests, class_name: "Test" , foreign_key: :author_id
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Incorrect email format", on: :create },

@@ -28,6 +28,14 @@ gem 'bootstrap', '~> 4'
 gem 'jquery-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# NETWORKING
+#gem 'faraday'
+
+#GIT
+gem "octokit", "~> 4.0"
+
+#ENV
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

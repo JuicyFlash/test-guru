@@ -3,6 +3,7 @@
   <%if user_signed_in? %>
     <% if current_user.admin? %>
       <%= link_to t('.admin_panel'), admin_tests_path %>
+      <%= link_to t('.admin_gists'), admin_gists_path %>
     <% end %>
         <div>
            <p>Welcome, <b><%= current_user.name_for_greeting %></b>

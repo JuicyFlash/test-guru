@@ -1,6 +1,6 @@
 class ProcessedTestsController < ApplicationController
 
-  before_action :set_processed_test, only: %i[show update result]
+  before_action :set_processed_test, only: %i[show update result gist]
 
   def show
 
@@ -18,6 +18,19 @@ class ProcessedTestsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@processed_test.current_question).call
+
+      if result.success?
+         flash_options = { notice: t('.gist_success', url: result.gist_url)  }
+         current_user.author_gists.new(question:@processed_test.current_question, url:result.gist_url).save
+      else
+       flash_options = { alert: t('.gist_failure') }
+      end
+    redirect_to @processed_test, flash_options
+
   end
 
   private
