@@ -21,11 +21,12 @@ class ProcessedTestsController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@processed_test.current_question).call
+    gist_service = GistQuestionService.new(@processed_test.current_question)
+    gist_service.call
 
-      if result.success?
-         flash_options = { notice: t('.gist_success', url: result.gist_url)  }
-         current_user.author_gists.new(question:@processed_test.current_question, url:result.gist_url).save
+      if gist_service.success?
+         flash_options = { notice: t('.gist_success', url: gist_service.gist_url)  }
+         current_user.author_gists.create(question:@processed_test.current_question, url:gist_service.gist_url)
       else
        flash_options = { alert: t('.gist_failure') }
       end

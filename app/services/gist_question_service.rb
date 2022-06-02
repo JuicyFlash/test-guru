@@ -3,7 +3,7 @@ class GistQuestionService
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(:access_token => ENV['ACCESS_TOKEN'])
+    @client = client || Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
   end
 
   def client
@@ -12,19 +12,16 @@ class GistQuestionService
 
   def call
     client.create_gist(gist_params)
-    self
   end
 
   def success?
-    if client.last_response.nil?
-      false
-    elsif client.last_response.status == 201
-      true
-    end
+    return false if client.last_response.nil?
+    client.last_response.status == 201
   end
 
   def gist_url
-    client.last_response.data.html_url unless client.last_response.nil?
+    return nil if client.last_response.nil?
+    client.last_response.data.html_url
   end
 
   private

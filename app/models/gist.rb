@@ -4,7 +4,7 @@ class Gist < ApplicationRecord
   belongs_to :author, class_name: "User" , foreign_key: :author_id
 
   def gist_question_title
-    question.body.slice(0..24)
+    question.body.truncate(25)
   end
 
   def gist_hash

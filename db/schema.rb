@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2022_05_26_182943) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "question_id"
     t.integer "author_id"
+    t.integer "question_id"
     t.index ["author_id"], name: "index_gists_on_author_id"
     t.index ["question_id"], name: "index_gists_on_question_id"
   end
