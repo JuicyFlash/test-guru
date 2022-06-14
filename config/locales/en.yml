@@ -33,6 +33,7 @@ en:
 
   edit_test_header: "Edit %{title} test"
   new_test_header: "Create new test"
+  gist_description: "Gist about question %{title} from Test-guru"
 
   tests:
     index:
@@ -55,8 +56,15 @@ en:
       fail_header: "Test was Failed!"
       success_header: "Test was successful Completed!"
       correct_answers: "%{percents}% correct answers"
+    gist:
+      gist_success: "Gist was successfully created %{url}"
+      gist_failure: "An error occurred while saving gist"
 
   admin:
+    gists:
+      index:
+        author: "Author"
+        question: "Question"
     tests:
       index:
         header: "Available tests"
@@ -75,6 +83,7 @@ en:
     nav:
       tests_list: "Tests list"
       admin_panel: "Admin mode"
+      admin_gists: "Created Gists"
   helpers:
     submit:
       test:

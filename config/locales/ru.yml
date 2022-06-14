@@ -2,6 +2,7 @@ ru:
 
   edit_test_header: "Изменение теста %{title}"
   new_test_header: "Создание нового теста"
+  gist_description: "Gist по вопросу %{title} от Test-guru"
 
   tests:
     index:
@@ -24,8 +25,15 @@ ru:
       fail_header: "Тест провален!"
       success_header: "Тест пройден!"
       correct_answers: "%{percents}% правильных ответов"
+    gist:
+      gist_success: "Gist успешно сохранён %{url}"
+      gist_failure: "Во время сохранения gist возникли ошибки"
 
   admin:
+    gists:
+      index:
+        author: "Автор"
+        question: "Вопрос"
     tests:
       index:
         header: "Доступные тесты"
@@ -44,6 +52,7 @@ ru:
     nav:
       tests_list: "Список тестов"
       admin_panel: "Режим администратора"
+      admin_gists: "Созданные Gists"
   helpers:
     submit:
       test:

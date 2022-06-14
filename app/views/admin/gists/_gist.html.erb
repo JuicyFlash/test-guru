@@ -1,0 +1,11 @@
+<tr>
+<td>
+  <%= gist.author.email %>
+</td>
+<td>
+  <%= link_to gist.gist_question_title, admin_question_path(gist.question)%>
+</td>
+  <td>
+    <%= link_to gist.gist_hash, gist.url, :target => '_blank' %>
+  </td>
+</tr>
