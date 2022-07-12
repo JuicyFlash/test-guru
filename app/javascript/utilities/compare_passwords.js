@@ -12,14 +12,16 @@ function comparePasswords(){
     if (pass?.value.length == 0 && passConfirm.value.length == 0){
         pass.className='form-control'
         passConfirm.className='form-control'
-    } else {
-        if (pass?.value == passConfirm?.value){
-            pass.className='form-control border-success'
-            passConfirm.className='form-control border-success'
-        }else {
-            pass.className='form-control is-invalid'
-            passConfirm.className='form-control is-invalid'
-        }
+        return
     }
+    if (pass?.value == passConfirm?.value){
+        pass.className='form-control border-success'
+        passConfirm.className='form-control border-success'
+    }
+    else {
+        pass.className='form-control is-invalid'
+        passConfirm.className='form-control is-invalid'
+    }
+
 }
 
