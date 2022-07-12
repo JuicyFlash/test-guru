@@ -5,11 +5,16 @@
 //= require jquery
 //= require popper
 //= require bootstrap
+//= require bootstrap
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "utilities/sorting"
+import "utilities/compare_passwords"
+
 
 Rails.start()
 Turbolinks.start()

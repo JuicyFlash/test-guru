@@ -1,6 +1,12 @@
-<h1> <div class="col-7"><%= t('tests.index.header') %></div></h1>
+<h1>
+  <div class="col-7 sort-by-title pointer">
+    <%= t('tests.index.header') %>
+    <%= octicon 'arrow-up', class: 'text-success hide', height:24 %>
+    <%= octicon 'arrow-down', class: 'text-success hide', height:24 %>
+  </div>
+</h1>
+<div class="col-7 items-list">
 <% @tests.each do |test| %>
-  <div class="col-7">
 <div class="list-group">
   <li class="list-group-item" >
       <div class="row justify-content-between">
@@ -17,5 +23,5 @@
       </div>
   </li>
 </div>
-</div>
 <% end %>
+</div>

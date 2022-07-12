@@ -1,11 +1,17 @@
 <div class="col-7">
-<h1><%= t('.header') %></h1>
+<h1>
+  <div class="sort-by-title pointer">
+    <%= t('.header') %>
+    <%= octicon 'arrow-up', class: 'text-success hide', height:24 %>
+    <%= octicon 'arrow-down', class: 'text-success hide', height:24 %>
+  </div>
+</h1>
 <h2>
   <%= button_to  t('.new'), new_admin_test_path,  { class: 'btn btn-outline-success btn-lg', method: :get }%>
 </h2>
 </div>
-<% @tests.each do |test| %>
-  <div class="col-7">
+  <div class="col-7 items-list">
+    <% @tests.each do |test| %>
     <div class="list-group">
       <li class="list-group-item" >
         <div class="row justify-content-between">
@@ -32,5 +38,6 @@
         </div>
       </li>
     </div>
+    <% end %>
   </div>
-<% end %>
+
