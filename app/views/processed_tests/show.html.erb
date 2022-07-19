@@ -1,6 +1,15 @@
 <h1> <%= t('.header', title: @processed_test.test.title) %></h1>
 <b>
+  <div class="questions_params" data-current-question-number=<%=@processed_test.question_number %>>
   <%= t('.question_number', number: @processed_test.question_number, count: @processed_test.test.questions.count) %>
+  </div>
+    <div class="progress-bar">
+      <% i = 0 %>
+      <% while i < @processed_test.test.questions.count do %>
+        <% i = i + 1  %>
+        <%= content_tag :div, '', class: 'bar-element', data: { question_num: i} %>
+      <% end %>
+    </div>
   <p>
     <%= @processed_test.current_question.body %>
   </p>

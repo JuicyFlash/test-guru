@@ -14,6 +14,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "utilities/sorting"
 import "utilities/compare_passwords"
+import "utilities/form_inline"
+import "utilities/fill_progress_bar"
 
 
 Rails.start()

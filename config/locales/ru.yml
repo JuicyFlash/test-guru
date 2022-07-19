@@ -28,13 +28,14 @@ ru:
     gist:
       gist_success: "Gist успешно сохранён %{url}"
       gist_failure: "Во время сохранения gist возникли ошибки"
-
   admin:
     gists:
       index:
         author: "Автор"
         question: "Вопрос"
     tests:
+      form_inline:
+        submit: "Ок"
       index:
         header: "Доступные тесты"
         new: "Создать новый тест"
