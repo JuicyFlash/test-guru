@@ -66,6 +66,8 @@ en:
         author: "Author"
         question: "Question"
     tests:
+      form_inline:
+        submit: "Ok"
       index:
         header: "Available tests"
         new: "Create new test"

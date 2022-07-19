@@ -10,20 +10,22 @@
   <%= button_to  t('.new'), new_admin_test_path,  { class: 'btn btn-outline-success btn-lg', method: :get }%>
 </h2>
 </div>
+<%= render 'shared/errors', resource: @test %>
   <div class="col-7 items-list">
     <% @tests.each do |test| %>
     <div class="list-group">
       <li class="list-group-item" >
         <div class="row justify-content-between">
           <div class="col-8">
-            <h5 class="mb-1"><%= link_to test.title, admin_test_path(test) %></h5>
+            <%= content_tag :h5, link_to(test.title, admin_test_path(test)) , class: 'test-title', data: { test_id: test.id} %>
+            <%= render 'form_inline', test: test == @test ? @test : test  %>
             <p class="mb-1"><%=  t('.test_category', category: test.category.title)  %></p>
             <div class="row justify-content-start">
               <div class="col-3">
                 <small> <%= test_level(test)%> </small>
               </div>
               <div class="col-3">
-                <small> <%= button_to  t('.edit'), edit_admin_test_path(test),  { class: 'btn btn-outline-primary btn-sm', method: :get }%>  </small>
+                <small> <%= button_to  t('.edit'), edit_admin_test_path(test), { data: { test_id: test.id}, class: 'btn btn-outline-primary btn-sm form-inline-link', method: :get }%>  </small>
               </div>
               <div class="col-3">
                 <small> <%= button_to  t('.delete'), admin_test_path(test), { class: 'btn btn-outline-danger btn-sm', method: :delete }%>  </small>

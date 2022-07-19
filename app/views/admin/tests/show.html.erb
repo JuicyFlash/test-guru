@@ -1,6 +1,9 @@
 <h1><%= @test.title %></h1>
 
 <h2> Questions </h2>
+<div class="col-3">
+  <small> <%= button_to  t('admin.tests.index.edit'), edit_admin_test_path(@test),  { class: 'btn btn-outline-primary btn-sm', method: :get }%>  </small>
+</div>
 
 <%= link_to 'New question', new_admin_test_question_path(@test) %>
 <ol>
