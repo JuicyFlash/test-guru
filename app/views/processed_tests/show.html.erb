@@ -4,10 +4,8 @@
   <%= t('.question_number', number: @processed_test.question_number, count: @processed_test.test.questions.count) %>
   </div>
     <div class="progress-bar">
-      <% i = 0 %>
-      <% while i < @processed_test.test.questions.count do %>
-        <% i = i + 1  %>
-        <%= content_tag :div, '', class: 'bar-element', data: { question_num: i} %>
+      <% @processed_test.test.questions.each.with_index do |name, index| %>
+      <%= content_tag :div, '', class: 'bar-element', data: { question_num: index} %>
       <% end %>
     </div>
   <p>
