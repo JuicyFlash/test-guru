@@ -54,6 +54,10 @@ ru:
       tests_list: "Список тестов"
       admin_panel: "Режим администратора"
       admin_gists: "Созданные Gists"
+      feed_back: "Обратная связь"
+    feedback:
+      message: "Сообщение"
+      send: "Отправить"
   helpers:
     submit:
       test:

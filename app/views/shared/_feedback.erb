@@ -1,0 +1,9 @@
+<%= form_with method: :post do |form| %>
+ <div>
+  <%= form.label t('.message') %>
+  <p>
+    <%= form.text_area "message"%>
+   </p>
+  <%= form.submit t('.send') %>
+ </div>
+<% end %>

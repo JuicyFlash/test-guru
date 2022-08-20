@@ -86,6 +86,10 @@ en:
       tests_list: "Tests list"
       admin_panel: "Admin mode"
       admin_gists: "Created Gists"
+      feed_back: "Feedback"
+    feedback:
+      message: "Message"
+      send: "Send"
   helpers:
     submit:
       test:

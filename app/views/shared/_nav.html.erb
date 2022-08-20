@@ -6,6 +6,10 @@
       <%= link_to t('.admin_gists'), admin_gists_path %>
     <% end %>
         <div>
+             <%= link_to t('.feed_back'), feed_back_index_path %>
+          </p>
+        </div>
+        <div>
            <p>Welcome, <b><%= current_user.name_for_greeting %></b>
              <%= link_to 'logout', destroy_user_session_path, method: :delete %>
            </p>
