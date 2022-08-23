@@ -7,8 +7,12 @@ class TestsController < ApplicationController
   end
 
   def start
-    current_user.tests.push(@test)
-    redirect_to current_user.processed_test(@test)
+    if @test.questions.count > 0
+      current_user.tests.push(@test)
+      redirect_to current_user.processed_test(@test)
+    else
+      redirect_to root_path, { alert: 'В тесте нет вопросов'  }
+    end
   end
 
   private

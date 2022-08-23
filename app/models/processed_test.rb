@@ -10,12 +10,21 @@ class ProcessedTest < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
+  def self.find!(params)
+    ProcessedTest.find(params)
+  rescue ActiveRecord::RecordNotFound
+    nil
+  end
+
+
   def accept!(answer_ids)
     if correct_answer? (answer_ids)
       self.correct_questions += 1
     end
     save!
   end
+
+
 
   def completed?
     current_question.nil?

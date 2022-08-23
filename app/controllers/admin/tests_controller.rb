@@ -38,11 +38,21 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def start
-    current_user.tests.push(@test)
-    redirect_to current_user.processed_test(@test)
+    if @test.questions.count > 0
+      current_user.tests.push(@test)
+      redirect_to current_user.processed_test(@test)
+    else
+      redirect_to root_path, { alert: 'В тесте нет вопросов'  }
+    end
   end
 
   def destroy
+    @test.questions.each do | qs |
+      qs.answers.delete_all
+      qs.gists.delete_all
+    end
+    @test.processed_tests.delete_all
+
     @test.destroy
     redirect_to  admin_tests_path
   end

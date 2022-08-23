@@ -11,12 +11,16 @@ class ProcessedTestsController < ApplicationController
   end
 
   def update
+    unless params[:answer_ids].nil?
     @processed_test.accept!(params[:answer_ids])
     if @processed_test.completed?
       TestsMailer.completed_test(@processed_test).deliver_now
       redirect_to result_processed_test_path(@processed_test)
     else
       render :show
+    end
+    else
+      redirect_to @processed_test, { notice: 'Не выбран вариант ответа'  }
     end
   end
 
@@ -37,7 +41,8 @@ class ProcessedTestsController < ApplicationController
   private
 
   def set_processed_test
-    @processed_test = ProcessedTest.find(params[:id])
+    @processed_test = ProcessedTest.find!(params[:id])
+    redirect_to root_path, { alert: 'Процесс прохождения теста завершён'  } if @processed_test.nil?
   end
 
 end
