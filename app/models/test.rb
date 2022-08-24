@@ -15,6 +15,7 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :mid, -> { where(level: 2..4) }
   scope :hard, -> { where('level >= 5') }
+  scope :ready, -> {where('ready')}
 
   def self.titles_by_category(category)
     Test.joins("JOIN categories on tests.category_id = categories.id ").where("categories.title = ?", category).order('tests.title DESC').pluck(:title)
