@@ -45,6 +45,8 @@ ru:
         test_table_title: "Название"
         test_questions_count: "Вопросов: %{count}"
         test_level: "Уровень теста: %{level}"
+        test_ready: "Тест готов"
+        test_not_ready: "Тест не готов"
         test_category: "Категория теста: %{category}"
         tests_table_count: "Количество вопросов"
       form:

@@ -41,8 +41,9 @@ class ProcessedTestsController < ApplicationController
   private
 
   def set_processed_test
-    @processed_test = ProcessedTest.find!(params[:id])
-    redirect_to root_path, { alert: 'Процесс прохождения теста завершён'  } if @processed_test.nil?
+    @processed_test = ProcessedTest.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, { alert: 'Процесс прохождения теста завершён'  }
   end
 
 end
