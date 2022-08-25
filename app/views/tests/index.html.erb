@@ -7,7 +7,6 @@
 </h1>
 <div class="col-7 items-list">
 <% @tests.each do |test| %>
-<% if test.ready %>
 <div class="list-group">
   <li class="list-group-item" >
       <div class="row justify-content-between">
@@ -24,6 +23,5 @@
       </div>
   </li>
 </div>
-<%end %>
 <% end %>
 </div>
