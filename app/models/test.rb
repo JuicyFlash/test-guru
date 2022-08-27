@@ -2,8 +2,8 @@
 
 class Test < ApplicationRecord
 
-  has_many :questions
-  has_many :processed_tests
+  has_many :questions, dependent: :destroy
+  has_many :processed_tests, dependent: :destroy
   has_many :users, through: :processed_tests
   belongs_to :category
   belongs_to :author, class_name: "User" , foreign_key: :author_id
@@ -15,6 +15,7 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :mid, -> { where(level: 2..4) }
   scope :hard, -> { where('level >= 5') }
+  scope :ready, -> {where('ready')}
 
   def self.titles_by_category(category)
     Test.joins("JOIN categories on tests.category_id = categories.id ").where("categories.title = ?", category).order('tests.title DESC').pluck(:title)

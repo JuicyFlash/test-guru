@@ -17,6 +17,8 @@ class ProcessedTest < ApplicationRecord
     save!
   end
 
+
+
   def completed?
     current_question.nil?
   end

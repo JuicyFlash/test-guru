@@ -17,6 +17,10 @@
           <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, class: 'form-select'  %>
         </p>
         <p>
+        <p>
+          <%= form.label :ready %>
+          <%= form.check_box :ready, id: :test_ready%>
+        </p>
           <%= form.submit class: 'btn btn-primary btn-sm' %>
         </p>
         <%= link_to t('.back'), admin_tests_path %>

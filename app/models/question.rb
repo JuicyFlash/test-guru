@@ -2,8 +2,8 @@
 
 class Question < ApplicationRecord
 
-  has_many :answers
-  has_many :gists
+  has_many :answers, dependent: :destroy
+  has_many :gists, dependent: :destroy
   belongs_to :test
 
   validates :body, presence: true

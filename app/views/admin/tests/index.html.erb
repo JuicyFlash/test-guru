@@ -35,6 +35,9 @@
           <div class="col-4">
             <small><%= t('.test_questions_count', count: test.questions.count)  %>
               <p> <%= button_to  t('.start'), start_test_path(test), { class: 'btn btn-success btn-sm' } %></p>
+              <p>
+               <%= test_ready(test) %>
+              </p>
             </small>
           </div>
         </div>

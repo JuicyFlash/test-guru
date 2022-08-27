@@ -6,7 +6,7 @@ class Category < ApplicationRecord
 
   validates :title, presence: true
 
-  default_scope { order(:title, :asc) }
+  default_scope { order(title:  :asc) }
 
 end
 

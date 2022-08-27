@@ -37,12 +37,8 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.processed_test(@test)
-  end
-
   def destroy
+    @test.processed_tests.delete_all
     @test.destroy
     redirect_to  admin_tests_path
   end
@@ -54,7 +50,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :ready, :category_id)
   end
 
   def find_test

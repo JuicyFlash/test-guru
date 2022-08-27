@@ -77,6 +77,8 @@ en:
         test_table_title: "Title"
         test_questions_count: "Questions: %{count}"
         test_level: "Test level: %{level}"
+        test_ready: "Test ready"
+        test_not_ready: "Test not ready"
         test_category: "Test category: %{category}"
         tests_table_count: "Questions count"
       form:
@@ -86,6 +88,10 @@ en:
       tests_list: "Tests list"
       admin_panel: "Admin mode"
       admin_gists: "Created Gists"
+      feed_back: "Feedback"
+    feedback:
+      message: "Message"
+      send: "Send"
   helpers:
     submit:
       test:
