@@ -11,4 +11,10 @@ module ApplicationHelper
   def flash_message(type_message)
     content_tag :p, flash[type_message], class: "flash #{type_message}" if flash[type_message]
   end
+
+  def admin_panel(path, user)
+      path = tests_path if path == root_path
+      button_to  t('.admin_panel'), "admin#{path}", {class: 'btn btn-success btn-sm', method: :get} if user.admin?
+  end
+
 end

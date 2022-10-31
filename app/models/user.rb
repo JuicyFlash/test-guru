@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   has_many :processed_tests
   has_many :tests, through: :processed_tests
+  has_many :given_badges
+  has_many :badges, through: :given_badges
   has_many :author_gists, class_name: "Gist" , foreign_key: :author_id
   has_many :author_tests, class_name: "Test" , foreign_key: :author_id
 

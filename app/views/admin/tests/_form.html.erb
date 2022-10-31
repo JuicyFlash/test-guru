@@ -1,6 +1,6 @@
 <div class="col-6 md-4">
 <%= form_with model: [:admin, @test], local: true do |form| %>
-  <h1><%= test_header(@test) %></h1>
+  <h3><%= test_header(@test) %></h3>
 
     <div class="card border-primary">
       <div class="card-body">
@@ -14,7 +14,7 @@
         </p>
         <p>
           <%= form.label :category_id %>
-          <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, class: 'form-select'  %>
+          <%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('helpers.select.test.prompt'), class: 'form-select'  %>
         </p>
         <p>
         <p>

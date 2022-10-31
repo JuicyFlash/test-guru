@@ -5,8 +5,8 @@ module TestsHelper
       I18n.t('.edit_test_header', title: test.title)
     else
       I18n.t('.new_test_header', title: test.title)
-
     end
+
   end
   def test_level(test)
     level_class =

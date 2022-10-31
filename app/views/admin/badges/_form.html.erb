@@ -1,0 +1,46 @@
+<div class="col-6 md-4">
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+    <h3><%= badge_header(@badge) %></h3>
+    <div class="card border-primary">
+      <div class="card-body">
+        <p>
+          <%= form.label :title %>
+          <%= form.text_field :title, id: :title, class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= form.label :rule_type %>
+          <%= form.collection_select :rule_type, BadgeService.rules, :first, :last, id: :rule_type, prompt:  t('helpers.select.badge.prompt'), class: 'form-select'  %>
+        </p>
+
+        <p>
+          <%= form.label :rule_description %>
+          <%= form.text_area :rule_description, :rows => 5, id: :rule_description, class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= form.label :rule_value %>
+          <%= form.text_field :rule_value, id: :rule_value, class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= form.label :picture %>
+          <%= form.text_field :picture, id: :badge_picture, class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= form.label :unique %>
+          <%= form.check_box :unique, id: :rule_unique %>
+        </p>
+
+          <%= form.submit class: 'btn btn-primary btn-sm' %>
+        </p>
+        <%= link_to t('.back'), admin_badges_path %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+

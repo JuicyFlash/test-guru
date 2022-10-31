@@ -7,7 +7,7 @@ class ProcessedTestsController < ApplicationController
   end
 
   def result
-
+    @badges = BadgeService.new(@processed_test).call
   end
 
   def update

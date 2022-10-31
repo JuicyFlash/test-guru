@@ -1,11 +1,14 @@
 ru:
 
+  edit_badge_header: "Изменение значка %{title}"
+  new_badge_header: "Создание нового значка"
   edit_test_header: "Изменение теста %{title}"
   new_test_header: "Создание нового теста"
   gist_description: "Gist по вопросу %{title} от Test-guru"
 
   tests:
     index:
+      admin_panel: "Режим администратора"
       header: "Доступные тесты"
       start: "Начать"
       test_table_title: "Название"
@@ -15,6 +18,10 @@ ru:
       tests_table_count: "Количество вопросов"
     form:
       back: "Назад"
+  badges:
+    index:
+      header: "Доступные значки"
+      admin_panel: "Режим администратора"
 
   processed_tests:
     show:
@@ -37,6 +44,7 @@ ru:
       form_inline:
         submit: "Ок"
       index:
+        admin_panel: "Режим администратора"
         header: "Доступные тесты"
         new: "Создать новый тест"
         edit: "Изменить"
@@ -51,10 +59,17 @@ ru:
         tests_table_count: "Количество вопросов"
       form:
         back: "Назад"
+    badges:
+      index:
+        admin_panel: "Режим администратора"
+      form:
+        back: "Назад"
   shared:
     nav:
-      tests_list: "Список тестов"
-      admin_panel: "Режим администратора"
+      tests_list: "Доступные тесты"
+      user_badges: "Значки пользователя"
+      badges_list: "Список значков"
+      admin_panel: "Список тестов"
       admin_gists: "Созданные Gists"
       feed_back: "Обратная связь"
     feedback:
@@ -65,11 +80,23 @@ ru:
       test:
         create: "Создать тест"
         update: "Обновить тест"
+      badge:
+        create: "Создать значок"
+        update: "Обновить значок"
     select:
-      prompt: "Выберите категорию"
-
+      test:
+        prompt: "Выберите категорию"
+      badge:
+        prompt: "Выберите правило"
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+      badge:
+        title: "Название"
+        rule_type: "Правило"
+        rule_description: "Описание правила"
+        rule_value: "Значение правила"
+        picture: "Картинка"
+        unique: "Уникальный"

@@ -31,12 +31,15 @@
 
 en:
 
+  edit_badge_header: "Edit %{title} badge"
+  new_badge_header: "Create new badge"
   edit_test_header: "Edit %{title} test"
   new_test_header: "Create new test"
   gist_description: "Gist about question %{title} from Test-guru"
 
   tests:
     index:
+      admin_panel: "Admin panel"
       header: "Available tests"
       start: "Start"
       test_table_title: "Title"
@@ -46,7 +49,10 @@ en:
       tests_table_count: "Questions count"
     form:
       back: "Back"
-
+  badges:
+    index:
+      header: "Available badges"
+      admin_panel: "Admin panel"
   processed_tests:
     show:
       header: "Passing the %{title}"
@@ -69,6 +75,7 @@ en:
       form_inline:
         submit: "Ok"
       index:
+        admin_panel: "Admin panel"
         header: "Available tests"
         new: "Create new test"
         start: "Start"
@@ -83,10 +90,17 @@ en:
         tests_table_count: "Questions count"
       form:
         back: "Back"
+    badges:
+      index:
+        admin_panel: "Admin panel"
+      form:
+        back: "Back"
   shared:
     nav:
-      tests_list: "Tests list"
-      admin_panel: "Admin mode"
+      tests_list: "Available tests"
+      user_badges: "User badges"
+      badges_list: "Badges"
+      admin_panel: "Tests list"
       admin_gists: "Created Gists"
       feed_back: "Feedback"
     feedback:
@@ -97,11 +111,23 @@ en:
       test:
         create: "Create test"
         update: "Update test"
+      badge:
+        create: "Create badge"
+        update: "Update badge"
     select:
-      prompt: "Select category"
-
+      test:
+        prompt: "Select category"
+      badge:
+        prompt: "Select rule"
     label:
       test:
         title: "Title"
         level: "Level"
         category_id: "Category"
+      badge:
+        title: "Title"
+        rule_type: "Rule"
+        rule_description: "Rule description"
+        rule_value: "Rule value"
+        picture: "Picture"
+        unique: "Unique"
