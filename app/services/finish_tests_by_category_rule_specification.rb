@@ -5,7 +5,7 @@ class FinishTestsByCategoryRuleSpecification < AbstractRuleSpecification
   end
 
   def satisfies?
-    category = Category.where(title:@value).first.id
+    category = Category.where(title:@value).first
     return false if category.nil
 
     tests = Test.where("category_id=? and ready=true", category.id).order('tests.id DESC').pluck(:id)
