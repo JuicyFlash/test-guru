@@ -6,6 +6,6 @@ module BadgesHelper
     else
       I18n.t('.new_badge_header', title: badge.title)
     end
-
-    end
+  end
 end
+
