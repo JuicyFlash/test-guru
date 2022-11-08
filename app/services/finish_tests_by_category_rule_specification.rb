@@ -23,15 +23,18 @@ class FinishTestsByCategoryRuleSpecification < AbstractRuleSpecification
 
   def successful_user_tests_ids_by_category(category_id)
     successful_user_tests_ids = []
-    ready_user_tests_by_category(category_id).find_each do |user_test|
-      if user_test.success? && successful_user_tests_ids.none?(user_test.test_id)
-        successful_user_tests_ids << user_test.test_id
+    user_processed_tests_by_category(category_id).find_each do |processed_test|
+      if processed_test.success? && successful_user_tests_ids.none?(processed_test.test_id)
+        successful_user_tests_ids << processed_test.test_id
       end
     end
     successful_user_tests_ids
   end
 
-  def ready_user_tests_by_category(category_id)
-    @processed_test.user.tests.where(category_id: category_id, ready: true).order('processed_tests.test_id DESC')
+  def user_processed_tests_by_category(category_id)
+    # Не смог переписать условие where на hash - проблема в необходимости указать алиас таблицы для полей.
+    ProcessedTest.joins('join tests on tests.id=processed_tests.test_id')
+                 .where('processed_tests.user_id=? and tests.category_id=? and tests.ready=true', @processed_test.user_id, category_id)
+                 .order('processed_tests.test_id DESC')
   end
 end
