@@ -131,3 +131,7 @@ en:
         rule_value: "Rule value"
         picture: "Picture"
         unique: "Unique"
+  rule_specification:
+    finish_tests_by_category: "For successfully pass all tests category"
+    finish_tests_by_level: "For successfully pass all tests level"
+    finish_any_test_by_first_try: "For successfully pass test first try"

@@ -10,7 +10,7 @@
 
         <p>
           <%= form.label :rule_type %>
-          <%= form.collection_select :rule_type, BadgeService.rules, :first, :last, id: :rule_type, prompt:  t('helpers.select.badge.prompt'), class: 'form-select'  %>
+          <%= form.collection_select :rule_type, Badge.rules_descriptions, :first, :last, id: :rule_type, prompt:  t('helpers.select.badge.prompt'), class: 'form-select'  %>
         </p>
 
         <p>

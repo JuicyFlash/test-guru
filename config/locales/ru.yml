@@ -100,3 +100,7 @@ ru:
         rule_value: "Значение правила"
         picture: "Картинка"
         unique: "Уникальный"
+  rule_specification:
+    finish_tests_by_category: "За успешное прохождение всех тестов заданной категории"
+    finish_tests_by_level: "За успешное прохождение тестов заданного уровня"
+    finish_any_test_by_first_try: "За успешное прохождение теста с первого раза"

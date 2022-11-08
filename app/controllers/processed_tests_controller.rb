@@ -6,7 +6,7 @@ class ProcessedTestsController < ApplicationController
   def show; end
 
   def result
-    @badges = BadgeService.new(@processed_test).call
+    @badges = @processed_test.badges
   end
 
   def update
@@ -15,6 +15,7 @@ class ProcessedTestsController < ApplicationController
     else
       @processed_test.accept!(params[:answer_ids])
       if @processed_test.completed?
+        BadgeService.new(@processed_test).call
         TestsMailer.completed_test(@processed_test).deliver_now
         redirect_to result_processed_test_path(@processed_test)
       else
@@ -43,4 +44,3 @@ class ProcessedTestsController < ApplicationController
     redirect_to root_path, { alert: 'Процесс прохождения теста завершён' }
   end
 end
-

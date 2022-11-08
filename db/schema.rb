@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_29_184706) do
+ActiveRecord::Schema.define(version: 2022_11_02_195257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,9 @@ ActiveRecord::Schema.define(version: 2022_08_29_184706) do
     t.bigint "badge_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "processed_test_id"
     t.index ["badge_id"], name: "index_given_badges_on_badge_id"
+    t.index ["processed_test_id"], name: "index_given_badges_on_processed_test_id"
     t.index ["user_id"], name: "index_given_badges_on_user_id"
   end
 
@@ -124,6 +126,7 @@ ActiveRecord::Schema.define(version: 2022_08_29_184706) do
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users", column: "author_id"
   add_foreign_key "given_badges", "badges"
+  add_foreign_key "given_badges", "processed_tests"
   add_foreign_key "given_badges", "users"
   add_foreign_key "processed_tests", "questions", column: "current_question_id"
   add_foreign_key "processed_tests", "tests"

@@ -6,7 +6,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><%=badge.title%></h5>
-        <p class="card-text"><%=badge.rule_description%></p>
+        <p class="card-text"><%= Badge.get_rule_description(badge.rule_type) %></p>
       </div>
     </div>
   </div>
