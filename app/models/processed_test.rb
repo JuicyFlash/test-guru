@@ -11,11 +11,10 @@ class ProcessedTest < ApplicationRecord
   has_many :badges, through: :given_badges
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
+  after_validation :after_validation_set_successful, on: :update
 
   def accept!(answer_ids)
-    if correct_answer? (answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer? (answer_ids)
     save!
   end
 
@@ -40,6 +39,10 @@ class ProcessedTest < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = self.test.questions.first if test.present?
+  end
+
+  def after_validation_set_successful
+    self.successful = success? if completed?
   end
 
   def correct_answer?(answer_ids)
