@@ -6,7 +6,7 @@ class FinishTestsByLevelRuleSpecification < AbstractRuleSpecification
     if ready_tests_ids.empty?
       false
     else
-      ready_tests_ids == user_processed_tests_by_level(@value).select(&:success?).pluck(:test_id).uniq
+      ready_tests_ids == user_processed_tests_by_level(@value).pluck(:test_id).uniq
     end
   end
 
@@ -18,7 +18,7 @@ class FinishTestsByLevelRuleSpecification < AbstractRuleSpecification
 
   def user_processed_tests_by_level(level)
     ProcessedTest.joins('join tests on tests.id=processed_tests.test_id')
-                 .where(user_id: @processed_test.user_id, tests: { level: level }, tests: { ready: true })
+                 .where(successful: true, user_id: @processed_test.user_id, tests: { level: level }, tests: { ready: true })
                  .order('processed_tests.test_id DESC')
   end
 end
