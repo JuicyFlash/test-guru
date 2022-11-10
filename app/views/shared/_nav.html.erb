@@ -1,8 +1,9 @@
 <nav class="navbar navbar-light bg-light">
-<%= link_to t('.tests_list'), tests_path %>
   <%if user_signed_in? %>
+    <%= link_to t('.user_badges'), given_badges_path %>
+    <%= link_to t('.tests_list'), tests_path %>
+    <%= link_to t('.badges_list'), badges_path %>
     <% if current_user.admin? %>
-      <%= link_to t('.admin_panel'), admin_tests_path %>
       <%= link_to t('.admin_gists'), admin_gists_path %>
     <% end %>
         <div>

@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
-
   has_many :tests
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
 
-  default_scope { order(title:  :asc) }
-
+  default_scope { order(title: :asc) }
 end
-

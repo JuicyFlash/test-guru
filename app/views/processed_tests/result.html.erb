@@ -1,6 +1,10 @@
 <%if @processed_test.success? %>
 <h1 id="h1_successful"> The <%= @processed_test.test.title %> <%= t('.success_header') %> </h1>
   <p><%= t('.correct_answers', percents: @processed_test.percent_result )  %> </p>
+   <% unless @badges.empty? %>
+      <h3> Получены награды </h3>
+      <%= render @badges %>
+   <%end %>
 <%else %>
   <h1 id="h1_failed"> The <%= @processed_test.test.title %> <%= t('.fail_header') %> </h1>
   <p><%= t('.correct_answers', percents: @processed_test.percent_result)%> </p>

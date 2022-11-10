@@ -1,0 +1,21 @@
+<div class="card mb-3" style="max-width: 500px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="<%=badge.picture%>" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> <%= badge.title %></h5>
+        <p class="card-text"> <%= Badge.get_rule_description(badge.rule_type) %></p>
+      </div>
+      <div class="row justify-content-start">
+      <div class="col-3">
+        <small> <%= button_to  'Изменить', edit_admin_badge_path(badge), { class: 'btn btn-outline-primary btn-sm ', method: :get}%>  </small>
+      </div>
+      <div class="col-3">
+        <small> <%= button_to  'Удалить', admin_badge_path(badge) ,{ class: 'btn btn-outline-danger btn-sm', method: :delete}%>  </small>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

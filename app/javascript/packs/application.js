@@ -5,7 +5,6 @@
 //= require jquery
 //= require popper
 //= require bootstrap
-//= require bootstrap
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -16,6 +15,7 @@ import "utilities/sorting"
 import "utilities/compare_passwords"
 import "utilities/form_inline"
 import "utilities/fill_progress_bar"
+import "utilities/badges/rule_description"
 
 
 Rails.start()

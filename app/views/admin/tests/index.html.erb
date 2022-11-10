@@ -1,14 +1,12 @@
 <div class="col-7">
-<h1>
+<h3>
   <div class="sort-by-title pointer">
     <%= t('.header') %>
     <%= octicon 'arrow-up', class: 'text-success hide', height:24 %>
     <%= octicon 'arrow-down', class: 'text-success hide', height:24 %>
   </div>
-</h1>
-<h2>
+</h3>
   <%= button_to  t('.new'), new_admin_test_path,  { class: 'btn btn-outline-success btn-lg', method: :get }%>
-</h2>
 </div>
 <%= render 'shared/errors', resource: @test %>
   <div class="col-7 items-list">

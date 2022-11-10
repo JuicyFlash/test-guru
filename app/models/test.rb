@@ -6,7 +6,7 @@ class Test < ApplicationRecord
   has_many :processed_tests, dependent: :destroy
   has_many :users, through: :processed_tests
   belongs_to :category
-  belongs_to :author, class_name: "User" , foreign_key: :author_id
+  belongs_to :author, class_name: 'User' , foreign_key: :author_id
 
   validates :title, presence: true, uniqueness: { scope: :level,
                                                   message: 'level and title must be uniq'}
@@ -18,6 +18,11 @@ class Test < ApplicationRecord
   scope :ready, -> {where('ready')}
 
   def self.titles_by_category(category)
-    Test.joins("JOIN categories on tests.category_id = categories.id ").where("categories.title = ?", category).order('tests.title DESC').pluck(:title)
+    tests_by_category(category).order('tests.title DESC').pluck(:title)
+  end
+
+  def self.tests_by_category(category)
+    Test.joins('JOIN categories on tests.category_id = categories.id ').where(ready: true,
+                                                                              categories: { title: category }).order('tests.id DESC')
   end
 end
