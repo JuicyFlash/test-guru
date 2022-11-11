@@ -30,6 +30,17 @@ class ProcessedTest < ApplicationRecord
     (self.correct_questions.to_f / test.questions.count * 100).to_i
   end
 
+  def time_to_complete
+    time_to_pass = self.test.time_to_pass
+    return -1 if time_to_pass.zero?
+
+    time_left = time_to_pass - (Time.current - created_at)
+
+    return 0 if time_left.negative?
+
+    time_left
+  end
+
   private
 
   def before_validation_set_next_question

@@ -58,6 +58,8 @@ en:
       header: "Passing the %{title}"
       question_number: "Question № %{number} of %{count}"
       next_question: "Next question"
+      time_to_pass: "Time to pass test"
+      time_is_up: "Time is up"
     result:
       fail_header: "Test was Failed!"
       success_header: "Test was successful Completed!"
@@ -124,6 +126,7 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+        time_to_pass: "Time to pass (sec)"
       badge:
         title: "Title"
         rule_type: "Rule"

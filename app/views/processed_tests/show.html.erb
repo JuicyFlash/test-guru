@@ -1,5 +1,11 @@
 <h1> <%= t('.header', title: @processed_test.test.title) %></h1>
 <b>
+  <% if @processed_test.time_to_complete >= 0 %>
+    <div><%=t('.time_to_pass') %>: </div>
+    <p class="timer">
+      <%= @processed_test.time_to_complete  %>
+    </p>
+    <% end %>
   <div class="questions_params" data-current-question-number=<%=@processed_test.question_number %>>
   <%= t('.question_number', number: @processed_test.question_number, count: @processed_test.test.questions.count) %>
   </div>
