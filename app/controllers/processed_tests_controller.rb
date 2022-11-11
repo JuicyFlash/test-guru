@@ -4,9 +4,7 @@ class ProcessedTestsController < ApplicationController
   before_action :set_processed_test, only: %i[show update result gist]
 
   def show
-    if @processed_test.time_to_complete.zero?
-      redirect_to result_processed_test_path(@processed_test), { notice: t('.time_is_up') }
-    end
+    finish_processed_test(t('.time_is_up')) if @processed_test.time_to_complete.zero?
   end
 
   def result
@@ -19,9 +17,7 @@ class ProcessedTestsController < ApplicationController
     else
       @processed_test.accept!(params[:answer_ids])
       if @processed_test.completed?
-        BadgeService.new(@processed_test).call
-        TestsMailer.completed_test(@processed_test).deliver_now
-        redirect_to result_processed_test_path(@processed_test)
+        finish_processed_test
       else
         render :show
       end
@@ -46,5 +42,11 @@ class ProcessedTestsController < ApplicationController
     @processed_test = ProcessedTest.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path, { alert: 'Процесс прохождения теста завершён' }
+  end
+
+  def finish_processed_test(notice = nil)
+    BadgeService.new(@processed_test).call
+    TestsMailer.completed_test(@processed_test).deliver_now
+    redirect_to result_processed_test_path(@processed_test), { notice: notice }
   end
 end

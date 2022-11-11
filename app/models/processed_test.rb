@@ -31,6 +31,7 @@ class ProcessedTest < ApplicationRecord
   end
 
   def time_to_complete
+    time_to_pass = self.test.time_to_pass
     return -1 if time_to_pass.zero?
 
     time_left = time_to_pass - (Time.current - created_at)
@@ -49,10 +50,6 @@ class ProcessedTest < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = self.test.questions.first if test.present?
-  end
-
-  def before_validation_set_time_to_pass
-    self.time_to_pass = self.test.time_to_pass
   end
 
   def after_validation_set_successful
