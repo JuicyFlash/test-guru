@@ -17,6 +17,10 @@
           <%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('helpers.select.test.prompt'), class: 'form-select'  %>
         </p>
         <p>
+          <%= form.label :time_to_pass %>
+          <%= form.text_field :time_to_pass, id: :test_time_to_pass, class: 'form-control' %>
+        </p>
+        <p>
         <p>
           <%= form.label :ready %>
           <%= form.check_box :ready, id: :test_ready%>

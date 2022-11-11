@@ -3,7 +3,11 @@
 class ProcessedTestsController < ApplicationController
   before_action :set_processed_test, only: %i[show update result gist]
 
-  def show; end
+  def show
+    if @processed_test.time_to_complete.zero?
+      redirect_to result_processed_test_path(@processed_test), { notice: t('.time_is_up') }
+    end
+  end
 
   def result
     @badges = @processed_test.badges

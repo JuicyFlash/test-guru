@@ -28,6 +28,8 @@ ru:
       header: "Прохождение теста %{title}"
       question_number: "Вопрос № %{number} из %{count}"
       next_question: "Следующий вопрос"
+      time_to_pass: "Время на прохождение теста"
+      time_is_up: "Время вышло"
     result:
       fail_header: "Тест провален!"
       success_header: "Тест пройден!"
@@ -93,6 +95,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        time_to_pass: "Время на прохождение (сек)"
       badge:
         title: "Название"
         rule_type: "Правило"
